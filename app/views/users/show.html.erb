@@ -1,0 +1,16 @@
+<div>
+  <%= image_tag "#{@data['avatar_url']}" %>
+  <p><%= @data['name'] %></p>
+  <p><%= @data['email'] %></p>
+  <p><%= link_to "#{@data['html_url']}", "#{@data['html_url']}" %></p>
+</div>
+
+<div>
+  <h2>Repositories!</h2>
+  <% @repo.each do |r| %>
+    <%= link_to "#{r['name']}", "#{r['html_url']}" %>
+    <br>
+  <% end %>
+</div>
+
+<%= link_to("Clear User Session", user_path(session[:current_user_id]), data: { confirm: "Are you sure?" }, method: :delete) %>
